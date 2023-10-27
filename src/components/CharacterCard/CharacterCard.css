@@ -1,0 +1,40 @@
+.character-card {
+  background-color: #2a2a2a;
+  border: 2px solid #ff2079;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 10px #ff2079;
+}
+
+.character-card img {
+  width: 100%;
+  border-bottom: 2px solid #ff2079;
+}
+
+.character-card h2 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.character-card p {
+  color: #ff2079;
+  margin-bottom: 20px;
+}
+
+.character-card button {
+  background-color: #ff2079;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.character-card button:hover {
+  background-color: #ff409f;
+}
