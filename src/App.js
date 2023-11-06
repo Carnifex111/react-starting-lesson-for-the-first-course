@@ -1,16 +1,16 @@
-import "./style/app.css";
-import CharacterCard from "./components/CharacterCard/CharacterCard";
-import { characters } from "./data/data.js";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
   return (
-    <div className="app">
-      <h2>Персонажи:</h2>
-      <div className="characters">
-        {characters.map((character, index) => (
-          <CharacterCard key={index} character={character} />
-        ))}
-      </div>
+    <div>
+      <p>Ты нажал на кнопку {count} раз!</p>
+      <button onClick={handleClick}>Нажми на меня</button>
     </div>
   );
 }
