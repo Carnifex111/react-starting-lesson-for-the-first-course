@@ -1,26 +1,23 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import RickAndMortyService from "./services/RickAndMortyService";
+import CharacterCard from "./components/CharacterCard/CharacterCard";
+import "./style/app.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState("");
+  const [characters, setCharacters] = useState([]);
 
-  function handleClick() {
-    setCount(count + 1);
-  }
-
-  function handleTextChange(event) {
-    setText(event.target.value);
-  }
+  useEffect(() => {
+    const rickAndMortyService = new RickAndMortyService();
+    rickAndMortyService.getAllCharacters().then((data) => {
+      setCharacters(data.results);
+    });
+  }, []);
 
   return (
-    <div>
-      <p>Ты нажал на кнопку {count} раз!</p>
-      <button onClick={handleClick}>Нажми на меня</button>
-
-      <br />
-
-      <input type="text" value={text} onChange={handleTextChange} />
-      <p>Здесь отображается все, что ты напечатал: {text}</p>
+    <div className="app">
+      {characters.map((character) => (
+        <CharacterCard key={character.id} character={character} />
+      ))}
     </div>
   );
 }
